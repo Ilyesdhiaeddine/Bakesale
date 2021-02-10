@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+
+
 import { View, Text, StyleSheet } from "react-native";
+import { ajax } from "../ajax";
+
 class App extends Component {
+
+  async componentDidMount() {
+    const deals = await ajax.fetchInitialDeals();
+    console.log(deals);
+  }
+
   render() {
     return (
-      <View>
-        <Text>Baksale</Text>
+      <View style={styles.container}>
+        <Text style={styles.header}>Baksale</Text>
       </View>
     );
   }
